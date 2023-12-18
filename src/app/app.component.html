@@ -1,4 +1,31 @@
-<h2>{{title}}</h2>
-<meu-primeiro-component></meu-primeiro-component>
-<app-meu-segundo></app-meu-segundo>
-<app-curso-detalhe></app-curso-detalhe>
+<h3>Selecione uma classe</h3>
+<div>
+  <select #classe (change)="0">
+    <option value="alert-success">Sucesso</option>
+    <option value="alert-danger">Perigo</option>
+    <option value="alert-info">Informação</option>
+    <option value="alert-warning">Alerta</option>
+  </select>
+  <br><br>
+
+  <div class="alert {{ classe.value }}" role="alert">
+    oxi mar porque
+  </div>
+
+  <div class="alert" [class.alert-success]="classe.value == 'alert-success'" role="alert">
+    Sucesso
+  </div> 
+  <div class="alert" [class.alert-danger]="classe.value == 'alert-danger'" role="alert">
+    Perigo
+  </div>
+  <div class="alert" role="alert" [class.alert-info]="classe.value == 'alert-info'">
+    Informação
+  </div>
+  <div class="alert" role="alert" [class.alert-warning]="classe.value == 'alert-warning'">
+    Alerta
+  </div>
+
+  <div class="alert alert-danger" role="alert" [style.display]=" classe.value == 'alert-danger' ? 'block' : 'none' ">
+    Esse texto é gay
+  </div>
+</div>

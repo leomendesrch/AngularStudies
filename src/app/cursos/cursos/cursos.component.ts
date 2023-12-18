@@ -8,7 +8,9 @@ import { CursosService } from '../cursos.service';
 })
 export class CursosComponent {
   nomePortal: string = 'https://leomendesrch.training';
-  cursos!: string[]
+
+  cursos: string[];
+  
   constructor(private cursosService: CursosService){
     this.cursos = this.cursosService.getCursos();
   }
